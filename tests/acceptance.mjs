@@ -4,6 +4,7 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
 const root=resolve(import.meta.dirname,'..');
 const temp=mkdtempSync(join(tmpdir(),'news-accept-'));
 const env=JSON.parse(readFileSync(process.env.MAKEFUN_ENV ?? 'D:/codex/tools/makefun-other-build/environment.json','utf8'));
@@ -24,12 +25,17 @@ try {
   assert.equal(b.subarray(-2).toString('hex'),'ffd9','Valid JPEG end marker');
   const browser=await chromium.launch({executablePath:env.chrome_executable,headless:true});
   try{
-    const page=await browser.newPage();
-    await page.route('**/*',r=>r.abort());
+    const page=await browser.newPage({viewport:{width:1024,height:1024},deviceScaleFactor:1});
+    const external=[];
+    await page.route('**/*',r=>{if(!r.request().url().startsWith('file:')){external.push(r.request().url());return r.abort();}return r.continue();});
+    await page.goto(pathToFileURL(join(root,'art/edition.svg')).href);
+    const rendered=await page.screenshot({type:'jpeg',quality:94});
+    assert.deepEqual(external,[],'Artwork must request no external resources');
+    assert.ok(rendered.equals(b),'Offline SVG render must equal shipped image');
     const decoded=await page.evaluate(async data=>{
       const bytes=Uint8Array.from(atob(data),c=>c.charCodeAt(0));
       const bitmap=await createImageBitmap(new Blob([bytes],{type:'image/jpeg'}));
-      const c=document.createElement('canvas'); c.width=bitmap.width;c.height=bitmap.height;
+      const c=document.createElementNS('http://www.w3.org/1999/xhtml','canvas'); c.width=bitmap.width;c.height=bitmap.height;
       const ctx=c.getContext('2d');ctx.drawImage(bitmap,0,0);ctx.getImageData(0,0,c.width,c.height);
       return {width:bitmap.width,height:bitmap.height};
     },b.toString('base64'));
