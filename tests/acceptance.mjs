@@ -29,6 +29,9 @@ try {
     const external=[];
     await page.route('**/*',r=>{if(!r.request().url().startsWith('file:')){external.push(r.request().url());return r.abort();}return r.continue();});
     await page.goto(pathToFileURL(join(root,'art/edition.svg')).href);
+    const textBounds=await page.evaluate(()=>Array.from(document.querySelectorAll('text')).map(t=>{const b=t.getBBox();const r=t.getBoundingClientRect();return {text:t.textContent,x:r.x,y:r.y,right:r.right,bottom:r.bottom};}));
+    for(const t of textBounds){assert.ok(t.x>=0&&t.y>=0&&t.right<=1024&&t.bottom<=1024,'Text outside image: '+t.text);}
+    assert.ok(textBounds.some(t=>t.text==='20 NOV 2026'),'Dateline must be printed');
     const rendered=await page.screenshot({type:'jpeg',quality:94});
     assert.deepEqual(external,[],'Artwork must request no external resources');
     assert.ok(rendered.equals(b),'Offline SVG render must equal shipped image');

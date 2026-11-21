@@ -18,11 +18,6 @@ let globeGrid='';
 for(let i=0;i<5;i++)globeGrid+=`<ellipse cx="516" cy="541" rx="${48+i*64}" ry="326"/><ellipse cx="516" cy="${345+i*96}" rx="329" ry="${31+i*9}"/>`;
 let chipPins='';
 for(let i=0;i<7;i++)chipPins+=path(`M${173+i*22} 295v-17 M${173+i*22} 409v17 M158 ${305+i*15}h-18 M326 ${305+i*15}h18`,'none',`stroke="${I}" stroke-width="5"`);
-const diplomat=(x,hair)=>`<g transform="translate(${x} 0)">
-${path('M-25 340l6-30 19-9 19 9 6 30',I)}
-<ellipse cx="0" cy="287" rx="14" ry="19" fill="${C}" stroke="${I}" stroke-width="2"/>
-${path(hair,I)}${path('M-10 310l10 15 10-15-10 5z',C)}${path('M0 319l-4 15h8z',R)}
-</g>`;
 const bridge=(x,y,w,broken=false)=>`<g transform="translate(${x} ${y})">
 ${path(`M0 0H${w}V10H0Z`,C)}
 ${path(`M12 8v25 M${w-12} 8v25 M${w/2} 8v25`,'none',`stroke="${C}" stroke-width="7"`)}
@@ -56,19 +51,31 @@ ${headline(261,342,28,'AI')}</g>
 ${path('M48 293l45 16 27-13 42 47 31-8 48 42 27-13 76 67','none',`stroke="${C}" stroke-width="16"`)}
 ${path('M48 293l45 16 27-13 42 47 31-8 48 42 27-13 76 67','none',`stroke="${R}" stroke-width="8"`)}
 ${path('M325 421l22 12-3-30',R)}
-<!-- Diplomacy: retrospective symbolic figures, not a new summit or signed deal. -->
-<path d="M573 207H982V271H573Z" fill="${C}"/>
-${headline(586,226,25,'Trump / Xi / Putin')}
-${text(586,251,20,'AP: nuclear talks agreed')}
-${text(586,273,16,"After the leaders' meeting")}
-<g transform="translate(0 18)">
-${diplomat(636,'M-15 282q-6-20 14-19l20 7-9 8-16-2z')}
-${diplomat(741,'M-15 283q-3-23 18-20 17 2 12 22l-7-11-17 1z')}
-${diplomat(846,'M-13 284q-2-18 12-20 13-1 16 17l-7-8-15 1z')}
-<ellipse cx="741" cy="356" rx="142" ry="27" fill="${I}" stroke="${C}" stroke-width="3"/>
-${path('M626 371l-9 48 M852 371l9 48','none',`stroke="${I}" stroke-width="7"`)}
-<g fill="none" stroke="${C}" stroke-width="1.5"><ellipse cx="741" cy="354" rx="18" ry="6"/><ellipse cx="741" cy="354" rx="18" ry="6" transform="rotate(60 741 354)"/><ellipse cx="741" cy="354" rx="18" ry="6" transform="rotate(-60 741 354)"/></g>
-${text(603,407,14,'US',I,'letter-spacing="1"')}${text(718,407,14,'CHINA',I,'letter-spacing="1"')}${text(826,407,14,'RUSSIA',I,'letter-spacing="1"')}
+<!-- AP report of remarks, not a summit on this date. The microphone is symbolic. -->
+<path d="M573 205H995V278H573Z" fill="${C}"/>
+${headline(586,226,23,"Trump on China's nuclear build-up")}
+${text(586,251,20,"AP reports remarks &amp; agreed talks")}
+${text(586,273,15,"After earlier US / China / Russia meeting")}
+<g transform="translate(48 40) scale(.92)">
+<!-- Original, simplified speaker: swept hair, profile, suit and open-hand gesture. -->
+${path('M607 380l13-42 28-15 31 6 30 27 31-12 6 13-39 20-30-21 12 58-77 5z',I)}
+${path('M646 326l10 28 21-25-12 10z',C)}
+${path('M660 341l-6 25 11 28 7-31-7-22z',R)}
+${path('M642 293q-6 15 2 25l11 11 19-4 7-13 10-3-9-8-2-12-22-10z',C,`stroke="${I}" stroke-width="2"`)}
+${path('M635 294q-10-19 9-25 24-11 41 5l-9 9-23-1-5 14z',C,`stroke="${I}" stroke-width="3"`)}
+${path('M641 281l27-5 M654 286l16-4 M672 295h5 M673 315l-9 1','none',`stroke="${I}" stroke-width="1.5"`)}
+${path('M736 345l11-13 3 1-3 9 12-7 3 3-10 9 10-3 1 4-16 10z',C,`stroke="${I}" stroke-width="2"`)}
+${path('M692 376l4-28 13-8','none',`stroke="${I}" stroke-width="3"`)}
+<ellipse cx="711" cy="338" rx="10" ry="5" fill="${I}" transform="rotate(-25 711 338)"/>
+${path('M605 378h111l-11 49h-91z',I,`stroke="${C}" stroke-width="2"`)}
+${path('M622 391h76 M621 398h75','none',`stroke="${T}" stroke-width="1"`)}
+<!-- An unsigned report sheet, not an agreement. -->
+${path('M794 288l132 7-5 106-132-7z',C,`stroke="${I}" stroke-width="2"`)}
+${text(805,310,12,'AP / 20 NOV',I,'font-weight="bold"')}
+${text(805,330,13,'CHINA / NUCLEAR',I,'font-weight="bold"')}
+${text(805,346,13,'EXPANSION',I,'font-weight="bold"')}
+<g fill="none" stroke="${T}" stroke-width="1.6"><ellipse cx="854" cy="374" rx="23" ry="7"/><ellipse cx="854" cy="374" rx="23" ry="7" transform="rotate(60 854 374)"/><ellipse cx="854" cy="374" rx="23" ry="7" transform="rotate(-60 854 374)"/></g>
+${text(787,423,13,'NONPROLIFERATION TALKS',I,'letter-spacing=".6"')}
 </g>
 <!-- The river ribbon holds the Kyiv scene; the breaks refer only to the reported strikes. -->
 ${path('M0 449Q230 421 431 458T1024 604V710Q824 665 602 665T0 706Z',I)}
@@ -80,17 +87,27 @@ ${text(44,539,27,'three bridges',C,'font-family="Georgia,serif"')}
 ${text(44,561,14,'Reuters: not independently confirmed',C)}
 ${bridge(35,607,126,true)}${bridge(190,600,123,true)}${bridge(342,605,126,true)}
 ${path('M89 573l5-15 5 15 15 5-15 4-5 15-5-15-15-4z M242 567l4-13 5 13 12 4-12 5-5 13-4-13-13-5z M396 574l5-14 4 14 13 4-13 5-4 12-5-12-12-5z',R)}
-<!-- COP31: open draft and opposing negotiating marks, no signature or accord. -->
+<!-- COP31 delegates seek revisions to a draft, with no completed agreement. -->
 ${path('M570 438l414-12v175l-414 10z',C)}
 ${headline(591,461,23,'ANTALYA / COP31')}
-${text(591,489,23,'Draft disputed over')}
-${text(591,517,26,'fossil fuels &amp; finance',I,'font-family="Georgia,serif"')}
-${path('M655 550l72-15 75 15v97l-75-17-72 17z',C,`stroke="${I}" stroke-width="3"`)}
-${path('M727 538v92 M667 568l44-8 M667 580l44-8 M743 565l43 9 M743 578l43 9','none',`stroke="${I}" stroke-width="2"`)}
-${text(682,616,13,'DRAFT',R,'transform="rotate(-10 682 616)" font-weight="bold"')}
-${path('M832 646v-43h15v-37h12v80 M864 646v-66h18v66 M826 646h68',I)}
-${path('M850 550q-19-15 0-25 M876 565q-15-15 3-27','none',`stroke="${T}" stroke-width="4"`)}
-${path('M612 642q-25-33 13-53 15 31-13 53',T)}
+${text(591,489,23,'Countries demand more')}
+${text(591,517,26,'on fossil fuels &amp; finance',I,'font-family="Georgia,serif"')}
+<!-- Facing negotiators and an open, unsigned draft. -->
+${path('M588 639l8-47 21-12 22 17 28-5 4 12-38 12-17-14 10 44z',I)}
+${path('M608 581l8 20 11-16-10 7z',C)}
+<ellipse cx="614" cy="565" rx="13" ry="17" fill="${C}" stroke="${I}" stroke-width="2"/>
+${path('M601 566q-4-23 15-21 16 2 11 21l-7-13-14 3z',I)}
+${path('M936 646l-3-50-17-13-20 10-25-8-7 9 37 17 12-9-4 42z',T)}
+<ellipse cx="916" cy="565" rx="13" ry="17" fill="${C}" stroke="${I}" stroke-width="2"/>
+${path('M903 560q0-22 17-17 15 4 10 23l-8-13-15 3z',I)}
+${path('M904 582l12 17 10-15-11 8z',C)}
+${path('M671 550l78-16 83 17-2 94-82-17-77 17z',C,`stroke="${I}" stroke-width="3"`)}
+${path('M749 537l-1 91 M686 566l46-9 M686 578l46-9 M765 563l49 10 M765 576l49 10','none',`stroke="${I}" stroke-width="2"`)}
+${text(694,607,14,'DRAFT',R,'transform="rotate(-10 694 607)" font-weight="bold"')}
+${path('M694 621l38-7 M763 609l47 9','none',`stroke="${R}" stroke-width="2"`)}
+${path('M661 594l13-9 11 2 1 4-13 5-3 9-9-3z M871 585l-16-6-8 3 4 4 9 2 6 8z',C,`stroke="${I}" stroke-width="1.8"`)}
+${path('M842 598l20-21','none',`stroke="${R}" stroke-width="3"`)}
+</g><g font-family="Arial,sans-serif">
 <!-- Lower foreground: play has space and movement, children are not disaster props. -->
 ${path('M39 746l349-46 153 103-365 57z',R)}
 ${path('M82 756l299-38 116 78-315 48z M218 736l130 90 M119 790l293-38','none',`stroke="${C}" stroke-width="2"`)}
