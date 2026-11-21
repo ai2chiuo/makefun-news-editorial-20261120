@@ -13,9 +13,12 @@ The revision uses specific actors, actions and places rather than generic labels
 Tool paths come from `MAKEFUN_ENV`, defaulting to the supplied public environment.json. On another machine provide JSON with local `playwright_module` and `chrome_executable`. Playwright is a local development/test dependency only; main.ts needs none.
 
 ## Test
-`node tests/acceptance.mjs` checks two fresh output runs for exact bytes, artifact naming, JPEG signature/end marker, byte cap, full Chrome decoding and dimensions. It also opens the SVG offline, rejects external resource requests and compares its Chrome rendering with the shipped JPEG. Rendering twice is additionally checked during development for seeded reproducibility.
+`node tests/acceptance.mjs` first rebuilds the ignored SVG and JPEG from original source and compares the JPEG with the shipped bytes, then checks two fresh output runs for exact bytes, artifact naming, JPEG signature/end marker, byte cap, full Chrome decoding and dimensions. It also opens the SVG offline, rejects external resource requests and compares its Chrome rendering with the shipped JPEG. Rendering twice is additionally checked during development for seeded reproducibility.
 
 See SOURCES.md for dated evidence and caveats. MIT licensed. Authorized host handles free submission separately; this code accesses no account APIs.
 
 ## Feedback-led round 1
 The best graded edition remains in Git at a7ecf5c (official provisional 97.7198; supplied current cutoff 98.9221). This round replaces the ambiguous three-leader table with Trump discussing China's nuclear expansion, with reported talks explicitly following an earlier meeting. COP31 now shows delegates seeking draft revisions, not just energy symbols. The host obtains the next official score and retains the highest-scoring version; no improvement in score is claimed before that result.
+
+## Craft revision from official 97.9552 feedback
+This round keeps the same six verified developments and replaces the foreground stick figures with individually drawn clothed children passing a ball and an athletic tennis player with articulated limbs, connected racket grip, facial details and ground shadows. The speaker and climate delegates gain face, lapel and sleeve shading. A redundant small nuclear-talks label was removed to reduce crowding; the full report caption remains. These are symbolic illustrations, not documentary portraits or claims about actual clothing, handedness or a specific photographed moment. The last officially graded best remains 3788786 (97.9552), below the supplied cutoff 98.9288. The new candidate has no official score until the host grades it.

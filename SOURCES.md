@@ -20,3 +20,6 @@ The optional Nations League draw story was not used. All six stories concern 20 
 
 ## Nuclear-scene clarification and COP31 action
 The AP fact supports Trump's reported remarks about China's nuclear expansion and agreed nonproliferation talks following the earlier leaders' meeting. The revised single-speaker drawing and report sheet avoid implying a trilateral summit on 20 November. The microphone and unsigned briefing sheet are symbolic, not claims about a specific venue, transcript, quote or document. No new diplomatic facts were added. COP31 delegates and revision marks symbolize the supported demand for stronger fossil-fuel language and climate finance; there is no completed agreement, signature or official seal.
+
+## Figure and scene design caveat
+The craft revision changes only original drawing, not news claims. Tennis pose, clothing, hair and expressions are invented editorial design, not evidence of Alcaraz's exact pose or kit. The children and COP31 delegates are symbolic, not identified individuals. Faces, hands, shadows and ball movement are newly code-drawn without reference photographs. All earlier source URLs, dates and verification limitations still apply.

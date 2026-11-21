@@ -10,6 +10,11 @@ const temp=mkdtempSync(join(tmpdir(),'news-accept-'));
 const env=JSON.parse(readFileSync(process.env.MAKEFUN_ENV ?? 'D:/codex/tools/makefun-other-build/environment.json','utf8'));
 const {chromium}=createRequire(import.meta.url)(env.playwright_module);
 try {
+  // The SVG is an ignored intermediate: rebuild it from original source on a clean checkout.
+  const shipped=readFileSync(join(root,'art/edition.jpg'));
+  const rebuild=spawnSync(process.execPath,[join(root,'art/render.mjs')],{cwd:root,env:process.env,encoding:'utf8',timeout:120000});
+  assert.equal(rebuild.status,0,rebuild.stderr||String(rebuild.error||''));
+  assert.ok(readFileSync(join(root,'art/edition.jpg')).equals(shipped),'Original rendering source must reproduce shipped JPEG');
   const outputs=[];
   for(const name of ['one','two']){
     const out=join(temp,name);
