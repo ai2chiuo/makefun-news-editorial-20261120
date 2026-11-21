@@ -23,3 +23,6 @@ The AP fact supports Trump's reported remarks about China's nuclear expansion an
 
 ## Figure and scene design caveat
 The craft revision changes only original drawing, not news claims. Tennis pose, clothing, hair and expressions are invented editorial design, not evidence of Alcaraz's exact pose or kit. The children and COP31 delegates are symbolic, not identified individuals. Faces, hands, shadows and ball movement are newly code-drawn without reference photographs. All earlier source URLs, dates and verification limitations still apply.
+
+## Market and crossing scene caveats
+The market analyst, terminal, desk, report and reactions are original editorial symbols for the supported AI-stock selloff, not a named trader, documented workplace or photographed reaction. The bridges and far-bank skyline are schematic composites, not claimed reconstructions of specific Kyiv landmarks or verified structural damage. The existing mayor attribution, Reuters non-confirmation and omission of casualty counts remain printed or documented. Bridge deck depth and cables add drawing clarity only. COP31's stronger-terms wording paraphrases the same UN item and does not assert a new negotiating outcome.

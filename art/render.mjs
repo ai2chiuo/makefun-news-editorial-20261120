@@ -18,11 +18,15 @@ let globeGrid='';
 for(let i=0;i<5;i++)globeGrid+=`<ellipse cx="516" cy="541" rx="${48+i*64}" ry="326"/><ellipse cx="516" cy="${345+i*96}" rx="329" ry="${31+i*9}"/>`;
 let chipPins='';
 for(let i=0;i<7;i++)chipPins+=path(`M${173+i*22} 295v-17 M${173+i*22} 409v17 M158 ${305+i*15}h-18 M326 ${305+i*15}h18`,'none',`stroke="${I}" stroke-width="5"`);
+// Perspective bridge vignettes: a closed crossing is symbolic, not a surveyed structure.
 const bridge=(x,y,w,broken=false)=>`<g transform="translate(${x} ${y})">
-${path(`M0 0H${w}V10H0Z`,C)}
-${path(`M12 8v25 M${w-12} 8v25 M${w/2} 8v25`,'none',`stroke="${C}" stroke-width="7"`)}
-${path(`M0-2Q${w/2}-50 ${w}-2 M${w/2}-26V0`,'none',`stroke="${C}" stroke-width="2"`)}
-${broken?path(`M${w*.52}-13l-10 16 15 9-12 17`, 'none',`stroke="${R}" stroke-width="9"`):''}
+${path(`M0 0L${w-8}-6 ${w+6} 3 9 11Z`,C)}
+${path(`M9 11L${w+6} 3v7L9 18Z`,T)}
+${path(`M15 15v22 M${w-5} 8v23 M${w/2} 12v25`,'none',`stroke="${C}" stroke-width="6"`)}
+${path(`M0-2Q${w/2}-50 ${w}-8 M${w/2}-28V-5`,'none',`stroke="${C}" stroke-width="2.4"`)}
+${path(`M18-12V-1 M34-20v18 M${w-18}-17v10 M${w-34}-24v19`,'none',`stroke="${C}" stroke-width="1"`)}
+${path(`M14 4L${w-6}-2`,'none',`stroke="${I}" stroke-width="1" stroke-dasharray="5 5"`)}
+${broken?path(`M${w*.52}-14l-10 16 15 9-12 17`, 'none',`stroke="${R}" stroke-width="8"`):''}
 </g>`;
 let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
 <defs>
@@ -32,10 +36,10 @@ let svg=`<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" view
 <rect width="1024" height="1024" fill="${C}"/>
 <g font-family="Arial,sans-serif">
 ${text(43,45,15,'THE WORLD / FRIDAY EDITION',I,'letter-spacing="2"')}
-${headline(620,48,29,'20 NOV 2026')}
+${headline(620,49,36,'20 NOV 2026')}
 ${path('M43 65H981','none',`stroke="${I}" stroke-width="2"`)}
-${text(40,150,88,'FAULT LINES',I,'font-family="Georgia,serif" letter-spacing="-3"')}
-${text(650,145,48,'&amp; lifelines',I,'font-family="Georgia,serif" font-style="italic" letter-spacing="-2"')}
+${text(40,144,78,'FAULT LINES',I,'font-family="Georgia,serif" letter-spacing="-3"')}
+${text(606,141,50,'&amp; lifelines',I,'font-family="Georgia,serif" font-style="italic" letter-spacing="-2"')}
 ${text(44,180,14,'SIX DISPATCHES FROM ONE DAY',I,'letter-spacing="3.4"')}
 ${text(979,180,14,'20 NOVEMBER 2026',I,'text-anchor="end" letter-spacing="2"')}
 <!-- One shared world, not six framed panels. Grid and ribbon are editorial structure only. -->
@@ -51,6 +55,24 @@ ${headline(261,342,28,'AI')}</g>
 ${path('M48 293l45 16 27-13 42 47 31-8 48 42 27-13 76 67','none',`stroke="${C}" stroke-width="16"`)}
 ${path('M48 293l45 16 27-13 42 47 31-8 48 42 27-13 76 67','none',`stroke="${R}" stroke-width="8"`)}
 ${path('M325 421l22 12-3-30',R)}
+<!-- A market analyst studies the selloff: original symbolic newsroom-style action. -->
+<ellipse cx="436" cy="428" rx="73" ry="8" fill="${I}" opacity=".18"/>
+${path('M437 348q32-4 38 31l7 40-49 1-9-45-39 18-17-6 2-8 47-23z',T,`stroke="${I}" stroke-width="2"`)}
+${path('M428 351l12 12 13-12-17 2z',C)}
+${path('M438 360l-6 17 9 24 7-26-6-15z',I)}
+${path('M426 367l-29 20-26 1 1 9 30-2 32-16',C,`stroke="${I}" stroke-width="2"`)}
+${path('M374 387l-14-2-12 5 2 5 14 1 11-2z',C,`stroke="${I}" stroke-width="1.6"`)}
+${path('M430 336l-1 15q8 10 15 2l3-13z',C,`stroke="${I}" stroke-width="1.5"`)}
+${path('M418 314q-7 12 1 26l14 8 15-9 6-19-16-14z',C,`stroke="${I}" stroke-width="2"`)}
+${path('M414 329q-11-24 9-29 23-7 34 14l-5 16-6-17-18 6-5-3-2 14z',I)}
+${path('M420 327l9-2 M436 324h8 M427 328l-2 9 7 1 M430 341h8','none',`stroke="${I}" stroke-width="1.2"`)}
+${path('M418 324h12v8h-12z M435 321h12v8h-12z M430 326l5-1','none',`stroke="${I}" stroke-width="1.4"`)}
+${path('M454 367l14 16-8 23-10-3 5-18-9-13',C,`stroke="${I}" stroke-width="2"`)}
+${path('M459 399l-8-2-5 9 8 6 7-3z',C,`stroke="${I}" stroke-width="1.5"`)}
+${path('M384 408l88-6 16 14-88 7z',C,`stroke="${I}" stroke-width="1.5"`)}
+${path('M399 411l49-3 M405 416l34-2','none',`stroke="${T}" stroke-width="1"`)}
+${path('M355 418h134v8H355z M372 425v10 M470 425v10',I)}
+${path('M447 369l9 10 M432 388l4 23 M467 384l8 26','none',`stroke="${C}" stroke-width="1.2" opacity=".7"`)}
 <!-- AP report of remarks, not a summit on this date. The microphone is symbolic. -->
 <path d="M573 205H995V278H573Z" fill="${C}"/>
 ${headline(586,226,23,"Trump on China's nuclear build-up")}
@@ -88,13 +110,16 @@ ${headline(44,482,21,'KYIV / DNIPRO CROSSINGS',C)}
 ${text(44,511,24,'Mayor: Russian missiles hit',C)}
 ${text(44,539,27,'three bridges',C,'font-family="Georgia,serif"')}
 ${text(44,561,14,'Reuters: not independently confirmed',C)}
+<g transform="translate(0 15)">
+${path('M26 584v-10h15v-11h12v19h18v-14h12v9h16v-15h14v19h19v-7h19v12 M188 574v-12h19v-10h13v19h21v-16h17v14h20v-8h21v13 M342 580v-14h17v-9h13v17h19v-12h16v14h24v-8h19v10',T,'opacity=".22"')}
+</g>
 ${bridge(35,607,126,true)}${bridge(190,600,123,true)}${bridge(342,605,126,true)}
-${path('M89 573l5-15 5 15 15 5-15 4-5 15-5-15-15-4z M242 567l4-13 5 13 12 4-12 5-5 13-4-13-13-5z M396 574l5-14 4 14 13 4-13 5-4 12-5-12-12-5z',R)}
+
 <!-- COP31 delegates seek revisions to a draft, with no completed agreement. -->
 ${path('M570 438l414-12v175l-414 10z',C)}
 ${headline(591,461,23,'ANTALYA / COP31')}
-${text(591,489,23,'Countries demand more')}
-${text(591,517,26,'on fossil fuels &amp; finance',I,'font-family="Georgia,serif"')}
+${text(591,489,23,'Countries demand stronger')}
+${text(591,517,25,'fossil-fuel &amp; finance terms',I,'font-family="Georgia,serif"')}
 <!-- Facing negotiators and an open, unsigned draft. -->
 <ellipse cx="757" cy="647" rx="176" ry="9" fill="${I}" opacity=".18"/>
 ${path('M588 639l8-47 21-12 22 17 28-5 4 12-38 12-17-14 10 44z',I)}
