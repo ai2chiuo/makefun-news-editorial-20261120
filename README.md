@@ -1,5 +1,7 @@
 # Fault lines & lifelines
 
+GitHub development copy: [verification runs](https://github.com/ai2chiuo/makefun-news-editorial-20261120/actions). The `best-submitted` branch preserves the selected, provisionally scored 97.9552% entry. `main` contains a later unsubmitted candidate and remote test support, with no new official score. See [REMOTE-DEVELOPMENT.md](REMOTE-DEVELOPMENT.md) for the exact state and cloud-development handoff.
+
 A revised original editorial cover for **20 November 2026**, retaining the first edition in Git history. Six scenes share one world and river-stage: AI-stock selloff, reported nuclear talks, Kyiv bridge strikes, disputed COP31 draft, UNICEF's Gaza campaign, and Alcaraz's Turin result. The shared composition does not assert causal links.
 
 The revision uses specific actors, actions and places rather than generic labels. The revised nuclear scene shows one symbolic speaker and an AP report, not a three-leader summit. The microphone is an editorial metaphor for reported remarks, not a documented venue or press event. Kyiv includes the mayor's attribution and Reuters' verification limit. The sports scene is the group-stage result, not a tournament victory. Children have dignified movement and space without graphic harm.
